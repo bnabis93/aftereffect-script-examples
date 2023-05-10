@@ -4,29 +4,32 @@
 var window = new Window("palette", "My Script", undefined);
 window.orientation = "column";
 
+// Add tab
+var tab = window.add("tabbedpanel", undefined, "")
+var tab1 = tab.add("tab", undefined, "Tab 1");
+var tab2 = tab.add("tab", undefined, "Tab 2");
 
-var text = window.add("statictext", undefined, "Some Example Text");
+// Tab1
+var text = tab1.add("statictext", undefined, "Some Example Text");
 
-
-var buttonGroup = window.add("group", undefined, "Button Group");
+var buttonGroup = tab1.add("group", undefined, "Button Group");
 buttonGroup.orientation = "row";
 var button1 = buttonGroup.add("button", undefined, "Button 1");
 var button2 = buttonGroup.add("button", undefined, "Button 2");
 
 
-var dropdown = window.add("dropdownlist", undefined, ["Item 1", "Item 2", "Item 3"]);
+var dropdown = tab1.add("dropdownlist", undefined, ["Item 1", "Item 2", "Item 3"]);
 dropdown.size = [150, 25];
 dropdown.selection = 0;
 dropdown.add("item", "Item 4");
 
 
-var boxesPanel = window.add("panel", undefined, "Boxes");
+// Tab2
+var boxesPanel = tab2.add("panel", undefined, "Boxes");
 boxesPanel.orientation = "row";
-
-
 var radio = boxesPanel.add("radiobutton", undefined, "Radio Text");
 var checkbox = boxesPanel.add("checkbox", undefined, "Checkbox Text");
-var slider = window.add("slider", undefined, "");
+var slider = tab2.add("slider", undefined, "");
 
 
 button1.onClick = function () {
